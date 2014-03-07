@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  FirstViewController.h
 //  Sample Controller
 //
 //  Created by Adam Proschek on 3/6/14.
@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "TempoToolbarController.h"
 
-@interface ViewController : TempoToolbarController
+@interface FirstViewController : UIViewController
 
 @end

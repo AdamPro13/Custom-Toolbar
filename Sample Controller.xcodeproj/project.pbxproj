@@ -21,6 +21,12 @@
 		508E216B18C93E8500118F23 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 508E214D18C93E8500118F23 /* UIKit.framework */; };
 		508E217318C93E8500118F23 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 508E217118C93E8500118F23 /* InfoPlist.strings */; };
 		508E217518C93E8500118F23 /* Sample_ControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 508E217418C93E8500118F23 /* Sample_ControllerTests.m */; };
+		508E218018C93EDB00118F23 /* TempoToolbarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 508E217F18C93EDB00118F23 /* TempoToolbarController.m */; };
+		508E218818C9428200118F23 /* TempoToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 508E218718C9428200118F23 /* TempoToolbar.m */; };
+		508E219718C9535A00118F23 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 508E219518C9535A00118F23 /* SecondViewController.m */; };
+		508E219818C9535A00118F23 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 508E219618C9535A00118F23 /* SecondViewController.xib */; };
+		508E219C18C9536E00118F23 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 508E219A18C9536E00118F23 /* FirstViewController.m */; };
+		508E219D18C9536E00118F23 /* FirstViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 508E219B18C9536E00118F23 /* FirstViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,18 @@
 		508E217018C93E8500118F23 /* Sample ControllerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Sample ControllerTests-Info.plist"; sourceTree = "<group>"; };
 		508E217218C93E8500118F23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		508E217418C93E8500118F23 /* Sample_ControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Sample_ControllerTests.m; sourceTree = "<group>"; };
+		508E217E18C93EDB00118F23 /* TempoToolbarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempoToolbarController.h; sourceTree = "<group>"; };
+		508E217F18C93EDB00118F23 /* TempoToolbarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempoToolbarController.m; sourceTree = "<group>"; };
+		508E218618C9428200118F23 /* TempoToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempoToolbar.h; sourceTree = "<group>"; };
+		508E218718C9428200118F23 /* TempoToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempoToolbar.m; sourceTree = "<group>"; };
+		508E218C18C9475F00118F23 /* TempoToolbarDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempoToolbarDataSource.h; sourceTree = "<group>"; };
+		508E218D18C9476C00118F23 /* TempoToolbarDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TempoToolbarDelegate.h; sourceTree = "<group>"; };
+		508E219418C9535A00118F23 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		508E219518C9535A00118F23 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		508E219618C9535A00118F23 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
+		508E219918C9536E00118F23 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
+		508E219A18C9536E00118F23 /* FirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		508E219B18C9536E00118F23 /* FirstViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FirstViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +135,13 @@
 				508E215B18C93E8500118F23 /* Main.storyboard */,
 				508E215E18C93E8500118F23 /* ViewController.h */,
 				508E215F18C93E8500118F23 /* ViewController.m */,
+				508E219318C9534400118F23 /* Child View Controllers */,
+				508E217E18C93EDB00118F23 /* TempoToolbarController.h */,
+				508E217F18C93EDB00118F23 /* TempoToolbarController.m */,
+				508E218618C9428200118F23 /* TempoToolbar.h */,
+				508E218718C9428200118F23 /* TempoToolbar.m */,
+				508E218C18C9475F00118F23 /* TempoToolbarDataSource.h */,
+				508E218D18C9476C00118F23 /* TempoToolbarDelegate.h */,
 				508E216118C93E8500118F23 /* Images.xcassets */,
 				508E215018C93E8500118F23 /* Supporting Files */,
 			);
@@ -150,6 +175,19 @@
 				508E217118C93E8500118F23 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		508E219318C9534400118F23 /* Child View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				508E219918C9536E00118F23 /* FirstViewController.h */,
+				508E219A18C9536E00118F23 /* FirstViewController.m */,
+				508E219B18C9536E00118F23 /* FirstViewController.xib */,
+				508E219418C9535A00118F23 /* SecondViewController.h */,
+				508E219518C9535A00118F23 /* SecondViewController.m */,
+				508E219618C9535A00118F23 /* SecondViewController.xib */,
+			);
+			name = "Child View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,8 +267,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				508E216218C93E8500118F23 /* Images.xcassets in Resources */,
+				508E219D18C9536E00118F23 /* FirstViewController.xib in Resources */,
 				508E215418C93E8500118F23 /* InfoPlist.strings in Resources */,
 				508E215D18C93E8500118F23 /* Main.storyboard in Resources */,
+				508E219818C9535A00118F23 /* SecondViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,7 +291,11 @@
 			files = (
 				508E216018C93E8500118F23 /* ViewController.m in Sources */,
 				508E215A18C93E8500118F23 /* AppDelegate.m in Sources */,
+				508E219718C9535A00118F23 /* SecondViewController.m in Sources */,
+				508E218818C9428200118F23 /* TempoToolbar.m in Sources */,
 				508E215618C93E8500118F23 /* main.m in Sources */,
+				508E218018C93EDB00118F23 /* TempoToolbarController.m in Sources */,
+				508E219C18C9536E00118F23 /* FirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

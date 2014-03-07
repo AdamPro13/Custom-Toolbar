@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "FirstViewController.h"
+#import "SecondViewController.h"
 
 @interface ViewController ()
 
@@ -18,6 +20,12 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    FirstViewController *firstViewController = [[FirstViewController alloc] initWithNibName:@"FirstViewController" bundle:[NSBundle mainBundle]];
+    firstViewController.title = @"First View";
+    SecondViewController *secondViewController = [[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:[NSBundle mainBundle]];
+    secondViewController.title = @"Second View";
+    [self addChildViewController:firstViewController];
+    [self addChildViewController:secondViewController];
 }
 
 - (void)didReceiveMemoryWarning
