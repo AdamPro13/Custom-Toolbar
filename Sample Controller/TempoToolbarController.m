@@ -85,8 +85,7 @@
 {
     UIViewController *controllerToPresent = [self.childViewControllers objectAtIndex:indexPath.row];
     [self presentViewController:controllerToPresent animated:YES completion:nil];
-    [[toolbar.headerTableView cellForRowAtIndexPath:indexPath] setSelected:NO];
-    [self.toolbar shrinkToolbar];
+    [[self.toolbar.headerTableView cellForRowAtIndexPath:indexPath] setSelected:NO];
 }
 
 #pragma mark - Custom methods for viewControllers
@@ -109,11 +108,10 @@
     }
     
     self.oldController = viewControllerToPresent;
-    viewControllerToPresent.view.frame = self.contentView.bounds;
-    [self.contentView addSubview:viewControllerToPresent.view];
+    viewControllerToPresent.view.frame = self.contentView.frame;
+    [self.view addSubview:viewControllerToPresent.view];
     [viewControllerToPresent didMoveToParentViewController:self];
-    NSLog(@"Controller to push on view: %@", viewControllerToPresent.view);
-    NSLog(@"Content View: %@", [self.contentView subviews]);
+    [self.view bringSubviewToFront:self.toolbar];
 }
 
 @end

@@ -139,7 +139,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return [self.delegate toolbar:self didSelectRowAtIndexPath:indexPath];
+    [self.delegate toolbar:self didSelectRowAtIndexPath:indexPath];
+    [self shrinkToolbar];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
