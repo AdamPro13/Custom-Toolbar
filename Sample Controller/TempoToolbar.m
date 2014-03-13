@@ -7,10 +7,12 @@
 //
 
 #import "TempoToolbar.h"
+#import "TempoToolbarTableViewCell.h"
 
 @interface TempoToolbar ()
 
 @property CGRect originalToolbarFrame;
+@property CGRect originalTitleFrame;
 @property CGRect originalExpandButtonFrame;
 @property CGRect originalHeaderTableViewFrame;
 
@@ -31,26 +33,54 @@
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
-    if (self) {
+    if (self)
+    {
+        CGRect titleFrame = CGRectMake(frame.origin.x + 50, frame.origin.y + frame.size.height - 40, 220, 40);
+        self.originalTitleFrame = titleFrame;
+        self.title = [[UILabel alloc] initWithFrame:titleFrame];
+        self.title.textAlignment = NSTextAlignmentCenter;
+        self.title.textColor = [UIColor whiteColor];
         self.toolbarState = CLOSED;
         self.originalToolbarFrame = frame;
-        self.backgroundColor = [UIColor blueColor];
+        self.backgroundColor = [UIColor transparentTempoRunTeal];
         CGRect expandButtonFrame = CGRectMake(frame.origin.x + 5, frame.origin.y + frame.size.height - 35, 30, 30);
         self.originalExpandButtonFrame = expandButtonFrame;
         self.expandButton = [[UIButton alloc] initWithFrame:expandButtonFrame];
         self.expandButton.backgroundColor = [UIColor redColor];
         [self.expandButton addTarget:self action:@selector(expandButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
-        CGRect tableViewFrame = CGRectMake(0, 20, 320, 0);
+        CGRect tableViewFrame = CGRectMake(0, 20, frame.size.width, 0);
         self.originalHeaderTableViewFrame = tableViewFrame;
         self.headerTableView = [[UITableView alloc] initWithFrame:tableViewFrame];
-        self.headerTableView.backgroundColor = self.backgroundColor;
+        self.headerTableView.backgroundColor = [UIColor clearColor];
         self.headerTableView.dataSource = self;
         self.headerTableView.delegate = self;
         
+        [self addSubview:self.title];
         [self addSubview:self.expandButton];
         [self addSubview:self.headerTableView];
     }
     return self;
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    CGGradientRef gradient;
+    CGColorSpaceRef colorspace;
+    CGFloat locations[2] = {0.0, 0.25};
+    
+    NSArray *colors = @[(id)[UIColor whiteColor].CGColor, (id)[UIColor transparentTempoRunTeal].CGColor];
+    
+    colorspace = CGColorSpaceCreateDeviceRGB();
+    gradient = CGGradientCreateWithColors(colorspace, (CFArrayRef)colors, locations);
+    
+    CGPoint startPoint, endPoint;
+    startPoint.x = 0.0;
+    startPoint.y = 0.0;
+    endPoint.x = 0.0;
+    endPoint.y = 100.0;
+    
+    CGContextDrawLinearGradient(context, gradient, startPoint, endPoint, kCGGradientDrawsAfterEndLocation);
 }
 
 #pragma mark - Event handlers
@@ -70,10 +100,12 @@
 - (void)shrinkToolbar
 {
     [UIView beginAnimations:@"animateShrink" context:nil];
-    [UIView setAnimationDuration:0.25];
+    [UIView setAnimationDuration:0.5];
     [self setFrame:self.originalToolbarFrame];
+    [self.title setFrame:self.originalTitleFrame];
     [self.expandButton setFrame:self.originalExpandButtonFrame];
     [self.headerTableView setFrame:self.originalHeaderTableViewFrame];
+//    self.headerTableView.transform = CGAffineTransformScale(self.headerTableView.transform, 0.0, 0);
     [UIView commitAnimations];
     self.toolbarState = CLOSED;
 }
@@ -84,23 +116,10 @@
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationDuration:0.5];
     [self setFrame:CGRectMake(0, 0, 320, 300)];
+    [self.title setFrame:CGRectMake(50, 260, 220, 40)];
     [self.expandButton setFrame:CGRectMake(5, 265, 30, 30)];
     [self.headerTableView setFrame:CGRectMake(0, 20, 320, 240)];
     [self.headerTableView reloadData];
-    
-//    [UIView beginAnimations:@"bounceUp" context:nil];
-//    [UIView setAnimationDuration:0.5];
-//    [self setFrame:CGRectMake(0, 0, 320, 295)];
-//    [self.expandButton setFrame:CGRectMake(5, 260, 30, 30)];
-//    [self.headerTableView setFrame:CGRectMake(0, 15, 320, 235)];
-//    [self.headerTableView reloadData];
-    
-//    [UIView beginAnimations:@"bounceDown" context:nil];
-//    [UIView setAnimationDuration:0.25];
-//    [self setFrame:CGRectMake(0, 0, 320, 300)];
-//    [self.expandButton setFrame:CGRectMake(5, 265, 30, 30)];
-//    [self.headerTableView setFrame:CGRectMake(0, 20, 320, 240)];
-//    [self.headerTableView reloadData];
 
     [UIView commitAnimations];
     self.toolbarState = OPEN;
@@ -140,21 +159,34 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.delegate toolbar:self didSelectRowAtIndexPath:indexPath];
+    TempoToolbarTableViewCell *selectedCell = (TempoToolbarTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
+//    self.title.text = [[selectedCell viewTitleLabel] text];
+    
+    UILabel *newHeaderLabel = [[UILabel alloc] initWithFrame:selectedCell.viewTitleLabel.frame];
+    newHeaderLabel.text = [selectedCell.viewTitleLabel text];
+    newHeaderLabel.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:newHeaderLabel];
+    
+    [UIView beginAnimations:@"moveTitle" context:NULL];
+    [UIView setAnimationDuration:0.5];
+    newHeaderLabel.frame = self.title.frame;
+    newHeaderLabel.textColor = [UIColor whiteColor];
+    self.title.hidden = YES;
+    self.title = newHeaderLabel;
+    
+    [UIView commitAnimations];
+    
     [self shrinkToolbar];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CATransform3D rotation;
-//    rotation = CATransform3DMakeRotation( (0.5*M_PI), 0.0, 0.7, 0.4);
-//    rotation = CATransform3DMakeTranslation(4.0, 4.0, 0.1);
-//    rotation = CATransform3DMakeAffineTransform(CGAff)
     rotation.m34 = 1.0/ -600;
     
     cell.layer.shadowColor = [[UIColor blackColor]CGColor];
     cell.layer.shadowOffset = CGSizeMake(10, 10);
     cell.alpha = 0;
-//    cell.layer.transform = rotation;
     [cell setBounds:CGRectMake(0, 0, 320, 0)];
     cell.layer.anchorPoint = CGPointMake(0, 0.5);
     

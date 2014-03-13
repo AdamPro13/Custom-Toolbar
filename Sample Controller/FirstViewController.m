@@ -7,8 +7,11 @@
 //
 
 #import "FirstViewController.h"
+#import "TempoActivityIndicator.h"
 
 @interface FirstViewController ()
+
+@property (strong, nonatomic) IBOutlet TempoActivityIndicator *activityIndicator;
 
 @end
 
@@ -27,7 +30,12 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.view.backgroundColor = [UIColor greenColor];
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self.activityIndicator startAnimating];
 }
 
 - (void)didReceiveMemoryWarning

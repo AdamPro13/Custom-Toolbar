@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		504C111718CF4C0C00B933D5 /* TempoActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 504C111618CF4C0C00B933D5 /* TempoActivityIndicator.m */; };
+		504C111B18CF4DED00B933D5 /* UIColor+TempoRunColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 504C111A18CF4DED00B933D5 /* UIColor+TempoRunColors.m */; };
+		504C111E18CF7EFD00B933D5 /* TempoToolbarTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 504C111D18CF7EFD00B933D5 /* TempoToolbarTableViewCell.m */; };
 		508E214A18C93E8500118F23 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 508E214918C93E8500118F23 /* Foundation.framework */; };
 		508E214C18C93E8500118F23 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 508E214B18C93E8500118F23 /* CoreGraphics.framework */; };
 		508E214E18C93E8500118F23 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 508E214D18C93E8500118F23 /* UIKit.framework */; };
@@ -40,6 +43,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		504C111518CF4C0C00B933D5 /* TempoActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempoActivityIndicator.h; sourceTree = "<group>"; };
+		504C111618CF4C0C00B933D5 /* TempoActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempoActivityIndicator.m; sourceTree = "<group>"; };
+		504C111918CF4DED00B933D5 /* UIColor+TempoRunColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+TempoRunColors.h"; sourceTree = "<group>"; };
+		504C111A18CF4DED00B933D5 /* UIColor+TempoRunColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+TempoRunColors.m"; sourceTree = "<group>"; };
+		504C111C18CF7EFD00B933D5 /* TempoToolbarTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TempoToolbarTableViewCell.h; sourceTree = "<group>"; };
+		504C111D18CF7EFD00B933D5 /* TempoToolbarTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TempoToolbarTableViewCell.m; sourceTree = "<group>"; };
 		508E214618C93E8500118F23 /* Sample Controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sample Controller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		508E214918C93E8500118F23 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		508E214B18C93E8500118F23 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -97,6 +106,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		504C111818CF4C1200B933D5 /* Activity Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				504C111518CF4C0C00B933D5 /* TempoActivityIndicator.h */,
+				504C111618CF4C0C00B933D5 /* TempoActivityIndicator.m */,
+			);
+			name = "Activity Indicator";
+			sourceTree = "<group>";
+		};
 		508E213D18C93E8500118F23 = {
 			isa = PBXGroup;
 			children = (
@@ -140,8 +158,11 @@
 				508E217F18C93EDB00118F23 /* TempoToolbarController.m */,
 				508E218618C9428200118F23 /* TempoToolbar.h */,
 				508E218718C9428200118F23 /* TempoToolbar.m */,
+				504C111C18CF7EFD00B933D5 /* TempoToolbarTableViewCell.h */,
+				504C111D18CF7EFD00B933D5 /* TempoToolbarTableViewCell.m */,
 				508E218C18C9475F00118F23 /* TempoToolbarDataSource.h */,
 				508E218D18C9476C00118F23 /* TempoToolbarDelegate.h */,
+				504C111818CF4C1200B933D5 /* Activity Indicator */,
 				508E216118C93E8500118F23 /* Images.xcassets */,
 				508E215018C93E8500118F23 /* Supporting Files */,
 			);
@@ -151,6 +172,8 @@
 		508E215018C93E8500118F23 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				504C111918CF4DED00B933D5 /* UIColor+TempoRunColors.h */,
+				504C111A18CF4DED00B933D5 /* UIColor+TempoRunColors.m */,
 				508E215118C93E8500118F23 /* Sample Controller-Info.plist */,
 				508E215218C93E8500118F23 /* InfoPlist.strings */,
 				508E215518C93E8500118F23 /* main.m */,
@@ -234,7 +257,7 @@
 		508E213E18C93E8500118F23 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Adam Proschek";
 				TargetAttributes = {
 					508E216618C93E8500118F23 = {
@@ -290,8 +313,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				508E216018C93E8500118F23 /* ViewController.m in Sources */,
+				504C111B18CF4DED00B933D5 /* UIColor+TempoRunColors.m in Sources */,
 				508E215A18C93E8500118F23 /* AppDelegate.m in Sources */,
+				504C111718CF4C0C00B933D5 /* TempoActivityIndicator.m in Sources */,
 				508E219718C9535A00118F23 /* SecondViewController.m in Sources */,
+				504C111E18CF7EFD00B933D5 /* TempoToolbarTableViewCell.m in Sources */,
 				508E218818C9428200118F23 /* TempoToolbar.m in Sources */,
 				508E215618C93E8500118F23 /* main.m in Sources */,
 				508E218018C93EDB00118F23 /* TempoToolbarController.m in Sources */,
@@ -349,7 +375,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -388,7 +413,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -446,7 +470,6 @@
 		508E217C18C93E8500118F23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sample Controller.app/Sample Controller";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -469,7 +492,6 @@
 		508E217D18C93E8500118F23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Sample Controller.app/Sample Controller";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -504,6 +526,7 @@
 				508E217A18C93E8500118F23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		508E217B18C93E8500118F23 /* Build configuration list for PBXNativeTarget "Sample ControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +535,7 @@
 				508E217D18C93E8500118F23 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

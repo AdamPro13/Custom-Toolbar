@@ -8,6 +8,7 @@
 
 #import "TempoToolbarController.h"
 #import "TempoToolbar.h"
+#import "TempoToolbarTableViewCell.h"
 
 @interface TempoToolbarController ()
 
@@ -19,6 +20,8 @@
 
 @implementation TempoToolbarController
 
+#pragma mark - Initializers
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -29,6 +32,8 @@
     
     return self;
 }
+
+#pragma mark - View lifecycle
 
 - (void)viewDidLoad
 {
@@ -66,14 +71,14 @@
 - (UITableViewCell *)toolbar:(TempoToolbar *)toolbar cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [toolbar dequeueReusableCellWithIdentifier:CellIdentifier];
+    TempoToolbarTableViewCell *cell = (TempoToolbarTableViewCell *)[toolbar dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil)
     {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell"];
+        cell = [[TempoToolbarTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"Cell" height:toolbar.headerTableView.rowHeight];
     }
     
-    cell.textLabel.text = [[self.childViewControllers objectAtIndex:indexPath.row] title];
+    cell.viewTitleLabel.text = [[self.childViewControllers objectAtIndex:indexPath.row] title];
     cell.backgroundColor = [UIColor clearColor];
     
     return cell;
@@ -112,6 +117,7 @@
     [self.view addSubview:viewControllerToPresent.view];
     [viewControllerToPresent didMoveToParentViewController:self];
     [self.view bringSubviewToFront:self.toolbar];
+    self.toolbar.title.text = [viewControllerToPresent title];
 }
 
 @end

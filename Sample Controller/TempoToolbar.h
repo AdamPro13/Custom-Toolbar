@@ -26,7 +26,7 @@ enum ToolbarState : NSInteger
 
 @property (strong, nonatomic) UIButton *expandButton;
 @property (strong, nonatomic) UITableView *headerTableView;
-
+@property (strong, nonatomic) UILabel *title;
 
 - (void)shrinkToolbar;
 - (void)expandToolbar;
